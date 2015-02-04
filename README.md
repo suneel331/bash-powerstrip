@@ -2,7 +2,6 @@
 
 Powerstrip git bash prompt. 
 
-![bash-powerline](https://raw.github.com/riobard/bash-powerline/master/screenshots/solarized-light-source-code-pro.png)
+![bash-powerline](https://github.com/suneel331/bash-powerstrip/blob/master/screenshots/bash-powerstrip.png)
 
-## Based on bash-powerline
-* [bash-powerline](https://github.com/riobard/bash-powerline): bash Powerline
+### Based on [bash-powerline](https://github.com/riobard/bash-powerline)
