@@ -8,7 +8,7 @@ __powerline() {
     readonly PS_SYMBOL_DARWIN=''
     readonly PS_SYMBOL_LINUX='❯'
     readonly PS_SYMBOL_OTHER='%'
-    readonly GIT_BRANCH_SYMBOL='├⬏ '
+    readonly GIT_BRANCH_SYMBOL='╽╯ '     #'├⬏ '
     readonly GIT_BRANCH_CHANGED_SYMBOL='✛'
     readonly GIT_NEED_PUSH_SYMBOL='⇡'
     readonly GIT_NEED_PULL_SYMBOL='⇣'
@@ -86,11 +86,13 @@ __powerline() {
         [ -n "$aheadN" ] && marks+=" $GIT_NEED_PUSH_SYMBOL$aheadN"
         [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
 
+        local mfiles="$(git status --porcelain -z -uno | cut -c 1-100)"
+        [ -n "$mfiles" ] && mfiles+="..."
+
         # print the git branch segment without a trailing newline
-        printf " $GIT_BRANCH_SYMBOL$branch$marks "
+        printf " $GIT_BRANCH_SYMBOL$branch$marks $RESET$FG_BASE01$mfiles$RESET"
     }
 
- 
     ps1() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly. 
